@@ -1,0 +1,14 @@
+apiVersion: kubeadm.k8s.io/v1beta4
+kind: InitConfiguration
+---
+apiVersion: kubeadm.k8s.io/v1beta4
+kind: ClusterConfiguration
+networking:
+  podSubnet: "172.30.0.0/16"
+  serviceSubnet: "192.168.200.0/25"
+  dnsDomain: "cherry.local"
+kubernetesVersion: "1.31.0" # Replace with your desired version
+controlPlaneEndpoint: "k8s-master.cherry.mango"
+---
+apiVersion: kubelet.config.k8s.io/v1beta1
+kind: KubeletConfiguration

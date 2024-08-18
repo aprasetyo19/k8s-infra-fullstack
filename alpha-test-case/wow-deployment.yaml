@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wow
+  namespace: alpha
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: wow
+  template:
+    metadata:
+      labels:
+        app: wow
+    spec:
+      containers:
+      - name: wow
+        image: yeasy/simple-web:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
